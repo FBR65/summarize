@@ -6,8 +6,9 @@ This project provides Python tools to interact with a Qdrant vector database for
 
 The toolkit consists of two main components:
 
-1.  **`retriever.py`**: Performs hybrid search (combining dense and sparse vectors with Reciprocal Rank Fusion - RRF) on specified Qdrant collections. It retrieves relevant documents based on a query, reranks them using a dedicated reranker model for improved relevance, and can optionally summarize the top results.
-2.  **`summarizer.py`**: Retrieves *all* documents from a specified Qdrant collection and generates a comprehensive summary. It automatically chooses between a direct summarization approach (if the total text fits within the model's context window) or a map-reduce strategy (summarizing chunks individually and then summarizing the summaries) for very large collections.
+1.  **`intake.py`**: This script handles the data ingestion process. It takes a document file as input, parses it using Apache Tika to extract content and metadata, performs semantic chunking on the text, generates both dense (via an OpenAI-compatible API) and sparse (via FastEmbed) vector embeddings for each chunk, creates the necessary collections in Qdrant if they don't exist, and finally uploads the chunks with their embeddings and metadata to the specified Qdrant collection(s).
+2.  **`retriever.py`**: Performs hybrid search (combining dense and sparse vectors with Reciprocal Rank Fusion - RRF) on specified Qdrant collections. It retrieves relevant documents based on a query, reranks them using a dedicated reranker model for improved relevance, and can optionally summarize the top results.
+3.  **`summarizer.py`**: Retrieves *all* documents from a specified Qdrant collection and generates a comprehensive summary. It automatically chooses between a direct summarization approach (if the total text fits within the model's context window) or a map-reduce strategy (summarizing chunks individually and then summarizing the summaries) for very large collections.
 
 ## Features
 
