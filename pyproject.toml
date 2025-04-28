@@ -1,10 +1,19 @@
 [project]
-name = "testumgebung"
+name = "Summarizer"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "gradio>=5.23.3",
+    "fastembed>=0.6.0",
+    "nltk>=3.9.1",
+    "numpy>=2.2.4",
     "openai>=1.70.0",
+    "pydantic-ai>=0.0.52",
+    "qdrant-client>=1.13.3",
+    "scikit-learn>=1.6.1",
+    "sentence-transformers>=4.0.1",
+    "spacy>=3.8.5",
+    "tika>=3.1.0",
+    "tiktoken>=0.9.0",
 ]
